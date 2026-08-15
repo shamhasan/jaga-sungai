@@ -10,21 +10,32 @@ interface NavItem {
 
 const navMenus = ref<NavItem[]>([
   { label: 'Beranda', path: '/' },
-  { label: 'Peta Sungai', path: '/laporan' },
-  { label: 'Tentang Kami', path: '/edukasi' },
+  { label: 'Peta Sungai', path: '/peta-sungai' },
+  { label: 'Tentang Kami', path: '/about' },
   { label: 'Kontak', path: '/edukasi' },
 ])
+
+const isScrolled = ref(false)
+
+window.addEventListener('scroll', () => {
+  isScrolled.value = window.scrollY > 0
+})
 </script>
 
 <template>
-  <header class="w-full h-20 bg-transparent sticky px-10 top-0 z-50">
+  <header
+    :class="{
+      'bg-linear-to-b from-[#083C42]/80 to-[#083C42]/0 h-20': isScrolled,
+    }"
+    class="w-full h-20 bg-transparent sticky px-10 top-0 z-50"
+  >
     <div class="w-full h-full max-w-8xl mx-auto flex items-center justify-between">
       <router-link to="/" class="flex items-center gap-2.5 no-underline">
         <img :src="logo" alt="Logo" class="h-7 object-cover" />
       </router-link>
 
       <nav
-        class="flex items-center gap-2 p-1.5 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg"
+        class="flex items-center gap-2 p-1.5 rounded-full bg-[#105A5C]/10 backdrop-blur-lg border border-white/20 shadow-white/50 shadow-xs"
       >
         <router-link
           v-for="menu in navMenus"

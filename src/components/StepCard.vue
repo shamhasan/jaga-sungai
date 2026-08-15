@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <div class="relative pt-16 max-w-sm w-full">
-    <div class="absolute top-3 left-1/2 -translate-x-1/2 z-50">
+    <div class="absolute top-3 left-1/2 -translate-x-1/2 z-10">
       <div
         class="w-24 h-24 rounded-full bg-[#2F8E8E] p-1 flex items-center justify-center shadow-md"
       >

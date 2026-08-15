@@ -71,7 +71,6 @@ const isLaporHovered = ref(false)
       </div>
     </section>
 
-    <!-- Section 2: How It Works Section (Scroll Lanjutan) -->
     <section
       class="min-h-screen w-full text-white flex flex-col items-center justify-center py-24 px-6"
     >
@@ -155,7 +154,6 @@ const isLaporHovered = ref(false)
             <EventList />
             <EventList />
             <EventList />
-            <!-- <div class="w-full bg-amber-300 h-14 rounded-full mt-4"></div> -->
             <button
               class="w-full bg-white h-14 rounded-full mt-4 cursor-pointer hover:translate-y-1 transition-all duration-200 text-[#256E6E] font-semibold uppercase"
               @click="{}"
@@ -216,7 +214,7 @@ const isLaporHovered = ref(false)
       </div>
     </section>
     <section>
-      <div class="w-full min-h-168 p-24 px-48 flex flex-col items-center justify-center">
+      <div class="w-full min-h-168 px-48 flex flex-col items-center justify-center">
         <h1
           class="text-[71.5px] md:text-5xl font-semibold tracking-wider drop-shadow-md text-white mb-4"
         >
@@ -255,16 +253,25 @@ const isLaporHovered = ref(false)
           </div>
           <div class="flex flex-col gap-2 min-w-fit">
             <p class="text-white/60">Tautan Langsung</p>
-            <p class="text-white">Beranda</p>
-            <p class="text-white">Peta Sungai</p>
-            <p class="text-white">Tentang Kami</p>
-            <p class="text-white">Kontak</p>
-            <p class="text-white">Lapor Sungai</p>
+            <p class="text-white cursor-pointer">Beranda</p>
+            <p class="text-white cursor-pointer">Peta Sungai</p>
+            <p class="text-white cursor-pointer">Tentang Kami</p>
+            <p class="text-white cursor-pointer">Kontak</p>
+            <p class="text-white cursor-pointer">Lapor Sungai</p>
           </div>
           <div class="flex flex-col gap-2 min-w-fit">
             <p class="text-white/60">Hubungi Kami</p>
-            <p class="text-white">Beranda</p>
+            <p class="text-white"><i class=""></i>Malang, Indonesia</p>
             <p class="text-white">Peta Sungai</p>
+          </div>
+        </div>
+        <hr class="w-full border-t-2 border-white/10 rounded-full my-8" />
+        <div class="flex flex-row justify-between items-end">
+          <p class="text-[14px]">© 2024 JagaSungai Environmental Alliance.</p>
+          <div class="flex flex-row w-1/ h-fit gap-6">
+            <img src="../assets/icons/Icon1.png" alt="" />
+            <img src="../assets/icons/Icon2.png" alt="" />
+            <img src="../assets/icons/Icon3.png" alt="" />
           </div>
         </div>
       </div>
