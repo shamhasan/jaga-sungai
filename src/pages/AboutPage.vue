@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FooterApp from '@/components/FooterApp.vue'
 import AboutComponent from '../components/AboutComponent.vue'
 </script>
 
@@ -75,6 +76,27 @@ import AboutComponent from '../components/AboutComponent.vue'
         icon="map-marker"
       />
     </div>
+    <div class="flex justify-center items-center w-full px-4 md:px-42 py-12">
+      <div class="w-full h-75 sm:h-100 md:h-125 rounded-xl overflow-hidden shadow-2xl">
+        <iframe
+          src="https://www.youtube.com/embed/tJJACY_uY-Y?si=SN__v5DjwwmkcGeA"
+          class="w-full h-full"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </section>
-  <div class="w-full"></div>
+  <div class="w-full bg-[#083C42]">
+    <FooterApp />
+  </div>
 </template>
