@@ -45,7 +45,7 @@ import AboutComponent from '../components/AboutComponent.vue'
       </div>
     </div>
 
-    <div class="flex justify-center items-center px-84">
+    <div class="flex justify-center items-center px-84 bg-white">
       <h1 class="text-[46px] font-semibold text-center text-[#006672] py-12 leading-14">
         <span class="hover:bg-[#006672] rounded-xl hover:text-white px-2">Beyond the drive</span>
         <span class="hover:bg-[#006672] rounded-xl hover:text-white px-2">we provide an</span>
@@ -59,7 +59,7 @@ import AboutComponent from '../components/AboutComponent.vue'
       </h1>
     </div>
 
-    <div class="flex justify-center items-center flex-row px-42 py-12 gap-8">
+    <div class="flex justify-center items-center flex-row px-42 py-12 gap-8 bg-white">
       <AboutComponent
         title="Transparansi Data"
         description="Pemantauan dan pelaporan kondisi kualitas air berbasis komunitas yang terbuka untuk publik."
@@ -76,7 +76,7 @@ import AboutComponent from '../components/AboutComponent.vue'
         icon="map-marker"
       />
     </div>
-    <div class="flex justify-center items-center w-full px-4 md:px-42 py-12">
+    <div class="flex justify-center items-center w-full px-4 md:px-42 py-12 bg-white">
       <div class="w-full h-75 sm:h-100 md:h-125 rounded-xl overflow-hidden shadow-2xl">
         <iframe
           src="https://www.youtube.com/embed/tJJACY_uY-Y?si=SN__v5DjwwmkcGeA"
