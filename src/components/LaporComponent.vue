@@ -4,14 +4,45 @@ import InputText from 'primevue/inputtext'
 import RadioButton from 'primevue/radiobutton'
 import { Button } from 'primevue'
 import ToggleSwitch from 'primevue/toggleswitch'
+import { useRouter } from 'vue-router'
 
 const props = defineProps<{
   isLaporMode: boolean
   isLaporVisible: boolean
+  koordinat: string
 }>()
+
+const emit = defineEmits<{
+  (e: 'toggleLaporVisible'): void
+  (e: 'update-koordinat', coords: { lat: number; lng: number }): void
+}>()
+
+const router = useRouter()
 
 const selectedValue = ref('1')
 const checked = ref(false)
+
+const routingDetail = () => {
+  router.push('/detail-laporan')
+}
+
+const handleGps = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude
+        const lng = position.coords.longitude
+        emit('update-koordinat', { lat, lng })
+      },
+      (error) => {
+        alert('Gagal mendapatkan lokasi GPS: ' + error.message)
+      },
+      { enableHighAccuracy: true },
+    )
+  } else {
+    alert('Browser Anda tidak mendukung layanan Geolocation.')
+  }
+}
 </script>
 
 <template>
@@ -25,7 +56,7 @@ const checked = ref(false)
   >
     <div
       v-if="props.isLaporMode"
-      class="absolute top-36 left-12 right-12 z-[700] p-4 flex items-center justify-center w-1/4 flex-col gap-4 transition-all! duration-300! ease-in-out!"
+      class="absolute top-36 left-12 right-12 z-200 p-4 flex items-center justify-center w-1/4 flex-col gap-4 transition-all! duration-300! ease-in-out!"
     >
       <Button
         class="bg-[url(../assets/images/bg-button-lapor.png)]! bg-fit! bg-top! bg-no-repeat! rounded-xl! px-4! py-4! cursor-pointer! w-full! flex! items-center! justify-center!"
@@ -43,7 +74,7 @@ const checked = ref(false)
         leave-to-class="transform opacity-0 scale-95 -translate-y-4"
       >
         <div
-          class="flex flex-col justify-center items-start w-full h-full p-6 bg-white rounded-md gap-1"
+          class="flex flex-col justify-center items-start w-full h-full p-6 bg-white rounded-md gap-1 shadow-xl!"
           v-if="props.isLaporVisible"
         >
           <p class="text-black uppercase font-semibold text-xs text-left">Lokasi</p>
@@ -52,9 +83,11 @@ const checked = ref(false)
               placeholder="Masukkan lokasi anda"
               class="w-full pl-3! pr-10! py-2! rounded-md! border-black/20! bg-black/10! text-sm! font-regular! text-black/60! focus:text-black! border! outline-none! focus:border-black/70! focus:outline-none!"
               required
+              :value="props.koordinat"
             />
             <button
               class="absolute right-1 top-1 bottom-1 px-3 active:scale-95 text-black rounded-md flex items-center justify-center transition-all cursor-pointer"
+              @click="handleGps"
             >
               <i class="pi pi-map-marker" style="font-size: 1rem"></i>
             </button>
@@ -174,6 +207,7 @@ const checked = ref(false)
           </div>
           <Button
             class="bg-[#075158]! w-full h-full py-2! rounded-md! text-sm! text-white! mt-2 uppercase! cursor-pointer! hover:bg-[#046C69]! font-regular! transition-all!"
+            @click="routingDetail"
           >
             Kirim Laporan
           </Button>

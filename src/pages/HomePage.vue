@@ -2,8 +2,19 @@
 import { ref } from 'vue'
 import StepCard from '../components/StepCard.vue'
 import EventList from '../components/EventList.vue'
-import ReportCard from '../components/ReportCard.vue'
 import FooterApp from '../components/FooterApp.vue'
+import ReportCard from '../components/ReportCard.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const routingPetaSungai = () => {
+  router.push({ path: '/peta-sungai', query: { mode: 'lihat' } })
+}
+
+const routingLapor = () => {
+  router.push({ path: '/peta-sungai', query: { mode: 'lapor' } })
+}
 
 const isLaporHovered = ref(false)
 </script>
@@ -20,7 +31,6 @@ const isLaporHovered = ref(false)
     <section
       class="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden"
     >
-      <!-- Garbage/Hero Asset Overlay -->
       <div
         class="absolute inset-0 -z-10 w-full h-full pointer-events-none overflow-hidden flex items-center justify-center mt-24"
       >
@@ -34,7 +44,6 @@ const isLaporHovered = ref(false)
         />
       </div>
 
-      <!-- Hero Content -->
       <div
         class="relative z-10 text-center text-white max-w-4xl px-6 py-12 flex flex-col items-center gap-6"
       >
@@ -58,6 +67,7 @@ const isLaporHovered = ref(false)
           <button
             @mouseenter="isLaporHovered = true"
             @mouseleave="isLaporHovered = false"
+            @click="routingLapor"
             class="px-8 py-3 bg-[#4FC4C4] hover:bg-white text-white hover:text-[#4FC4C4] font-semibold rounded-xl shadow-md transition-transform duration-300 active:scale-95 cursor-pointer"
           >
             LAPORKAN SUNGAI
@@ -65,6 +75,7 @@ const isLaporHovered = ref(false)
 
           <button
             class="px-8 py-3 bg-white/20 hover:bg-white text-white hover:text-[#4FC4C4] font-semibold rounded-xl shadow-md border border-white/20 backdrop-blur-md transition-transform duration-300 active:scale-95 cursor-pointer"
+            @click="routingPetaSungai"
           >
             LIHAT PETA
           </button>
@@ -157,7 +168,7 @@ const isLaporHovered = ref(false)
             <EventList />
             <button
               class="w-full bg-white h-14 rounded-full mt-4 cursor-pointer hover:translate-y-1 transition-all duration-200 text-[#256E6E] font-semibold uppercase"
-              @click="{}"
+              @click="routingPetaSungai"
             >
               Lihat peta sungai
             </button>

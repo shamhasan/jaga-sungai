@@ -1,6 +1,17 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const routingDetailLaporan = () => {
+  router.push({ path: '/detail-laporan' })
+}
+</script>
+
 <template>
   <div
     class="w-141 bg-[#ffffff] h-141 rounded-2xl shadow-xl cursor-pointer hover:scale-101 transition-transform duration-400"
+    @click="routingDetailLaporan"
   >
     <div class="flex flex-row items-start justify-center h-5/8">
       <div

@@ -12,7 +12,7 @@ const navMenus = ref<NavItem[]>([
   { label: 'Beranda', path: '/' },
   { label: 'Peta Sungai', path: '/peta-sungai' },
   { label: 'Tentang Kami', path: '/about' },
-  { label: 'Kontak', path: '/edukasi' },
+  { label: 'Kontak', path: '/contact' },
 ])
 
 const isScrolled = ref(false)

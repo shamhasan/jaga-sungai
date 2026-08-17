@@ -53,7 +53,10 @@ import AboutComponent from '../components/AboutComponent.vue'
         <span class="hover:bg-[#006672] rounded-xl hover:text-white px-2"
           >ecosystem of support</span
         >
-        <span class="hover:bg-[#006672] rounded-xl hover:text-white px-2">and luxury</span> <br />
+        <span class="hover:bg-[#006672] rounded-xl hover:text-white hover:font-figma-hand px-2"
+          >and luxury</span
+        >
+        <br />
         <span class="hover:bg-[#006672] rounded-xl hover:text-white px-2">designed around</span>
         <span class="hover:bg-[#006672] rounded-xl hover:text-white px-2">your life.</span>
       </h1>
